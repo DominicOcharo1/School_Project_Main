@@ -116,7 +116,7 @@ with st.container():
                 
                 class_names = ['fall_armyworm', 'grasshopper', 'leaf_blight', 'leaf_spot']
 
-                idx, predicted_class, confidence = helper.predict_class("temp_image.jpg", model, class_names)
+                idx, predicted_class, confidence = predict_class("temp_image.jpg", model, class_names)
 
                 with col2:
                     st.write(f"Predicted Class Index: {idx}")
