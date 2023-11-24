@@ -170,13 +170,20 @@ with st.container():
                     elif idx == 1:
                         st.write(
                             """
-                            - spray with pestiscide
-                            - spray twice
-                            - weed
+                            - Use insecticidal baits containing insecticides to lure and kill grasshoppers. 
+                            - Apply insecticidal sprays to directly kill grasshoppers.
+                            - Create physical barriers, such as sticky traps around fields, to prevent grasshoppers from entering cultivated areas.
                             
                             """)
                     elif idx == 2:
-                        st.write("Display content for dom3")
+                        st.write(
+                            """
+                            - Apply fungicides to all plant surfaces early in the morning or late in the evening.
+                            - Practice crop rotation to break the disease cycle. Avoid planting maize in the same field consecutively.
+                            - Avoid over-irrigation, as excessive moisture creates favorable conditions for fungal growth.
+                            - Seek advice from local plant pathologists for specific recommendations tailored to your region.
+                            
+                            """)
                     elif idx == 3:
                         st.write("Display content for dom4")
                     
