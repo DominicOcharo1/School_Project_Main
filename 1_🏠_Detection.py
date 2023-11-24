@@ -110,8 +110,8 @@ with st.container():
             if uploaded_file is not None:
                 with open("temp_image.jpg", "wb") as f:
                     f.write(uploaded_file.read())
-
-               saved_model_path = Path(settings.CLASSIFICATION_MODEL)
+                
+                saved_model_path = Path(settings.CLASSIFICATION_MODEL)
                # model = tf.saved_model.load(saved_model_path)
                 model = tf.load(saved_model_path)
                 class_names = ['fall_armyworm', 'grasshopper', 'leaf_blight', 'leaf_spot']
