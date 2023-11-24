@@ -163,7 +163,7 @@ with st.container():
                     st.write(f"Predicted Class Index: {idx}")
                     st.write(f"Predicted Class Name: {predicted_class}")
                     # st.write(f"Confidence: {confidence:.2f}")
-                    st.markdown("<h3 style='text-align: center; color: black;'>Leaf Blight, Leaf Spot, Fall Armyworm, and Grasshopper</h3>",
+                    st.markdown("<h3 style='text-align: center; color: black;'>REMEDIES</h3>",
                 unsafe_allow_html=True)
 
         
