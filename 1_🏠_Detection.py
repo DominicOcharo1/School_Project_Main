@@ -111,9 +111,9 @@ with st.container():
                 with open("temp_image.jpg", "wb") as f:
                     f.write(uploaded_file.read())
                 
-                saved_model_path = Path(settings.CLASSIFICATION_MODEL)
+                # saved_model_path = Path(settings.CLASSIFICATION_MODEL)
                # model = tf.saved_model.load(saved_model_path)
-                model = tf.load(saved_model_path)
+                model = tf.load(settings.CLASSIFICATION_MODEL)
                 class_names = ['fall_armyworm', 'grasshopper', 'leaf_blight', 'leaf_spot']
 
                 idx, predicted_class, confidence = helper.predict_class("temp_image.jpg", model, class_names)
