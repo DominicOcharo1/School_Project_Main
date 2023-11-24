@@ -38,7 +38,7 @@ VIDEOS_DICT = {
 MODEL_DIR = ROOT / 'weights'
 DETECTION_MODEL = MODEL_DIR / 'best.pt'
 SEGMENTATION_MODEL = MODEL_DIR / 'yolov8n-seg.pt'
-CLASSIFICATION_MODEL =  MODEL_DIR
+CLASSIFICATION_MODEL =  "weights/saved_model.pb"
 
 # Webcam
 WEBCAM_PATH = 0
