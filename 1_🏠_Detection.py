@@ -169,7 +169,14 @@ with st.container():
         
                             # Display different content based on the predicted class
                     if idx == 0:
-                        st.write("Display content for dom1")
+                        st.write(
+                            """
+                            
+                            - Use biopesticides based on naturally occurring organisms, to target FAW larvae.
+                            - Apply insecticidal sprays containing active ingredients effective against FAW larvae, such as pyrethroids, spinosyns, or diamides.
+                            - Use pheromone traps to attract and monitor FAW adults.
+                        
+                            """)
                     elif idx == 1:
                         st.write(
                             """
@@ -189,7 +196,13 @@ with st.container():
                             
                             """)
                     elif idx == 3:
-                        st.write("Display content for dom4")
-                    
+                        st.write(
+                            """
+
+                            - Control weeds in and around maize fields to eliminate potential hosts for leaf spot pathogens. 
+                            - Apply fungicides containing active ingredients effective against the specific leaf spot pathogen affecting your crops.
+                            - Avoid overhead irrigation, which can create a favorable environment for leaf spot pathogens to thrive.
+                            
+                            """)
             else:
                 st.write("Please upload an image before pressing the Predict button.")
