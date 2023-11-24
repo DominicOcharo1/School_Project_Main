@@ -101,7 +101,7 @@ with st.container():
         # Add other source types (video, webcam, youtube) and their corresponding functions here
 
     elif model_task == 'Classification':
-        model = tf.keras.models.load_model("weights/maize_class.hdf5")
+        model = tf.keras.models.load_model("classification_model/saved_model.pb")
         ### load file
         uploaded_file = st.file_uploader("Choose a image file", type="jpg")
           
