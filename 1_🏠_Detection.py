@@ -162,7 +162,10 @@ with st.container():
                     # Print the predicted class name and confidence score
                     st.write(f"Predicted Class Index: {idx}")
                     st.write(f"Predicted Class Name: {predicted_class}")
-                    st.write(f"Confidence: {confidence:.2f}")
+                    # st.write(f"Confidence: {confidence:.2f}")
+                    st.markdown("<h3 style='text-align: center; color: black;'>Leaf Blight, Leaf Spot, Fall Armyworm, and Grasshopper</h3>",
+                unsafe_allow_html=True)
+
         
                             # Display different content based on the predicted class
                     if idx == 0:
@@ -170,6 +173,7 @@ with st.container():
                     elif idx == 1:
                         st.write(
                             """
+
                             - Use insecticidal baits containing insecticides to lure and kill grasshoppers. 
                             - Apply insecticidal sprays to directly kill grasshoppers.
                             - Create physical barriers, such as sticky traps around fields, to prevent grasshoppers from entering cultivated areas.
