@@ -26,7 +26,7 @@ with st.container():
         "<h1 style='text-align: center; color: blue; background-color: lightblue; padding: 20px;'>DL POWERED PESTS AND DISEASE DETECTION IN MAIZE</h1>",
         unsafe_allow_html=True)
 
-    st.markdown("<h2 style='text-align: center; color: black;'>This detection model detects the following types of diseases in maize:</h2>",
+    st.markdown("<h2 style='text-align: center; color: black;'>This model detects/classifies the following types of diseases in maize:</h2>",
                 unsafe_allow_html=True)
 
     st.markdown("<h3 style='text-align: center; color: black;'>Leaf Blight, Leaf Spot, Fall Armyworm, and Grasshopper</h3>",
@@ -127,7 +127,7 @@ with st.container():
         class_names = ['fall_armyworm', 'grasshopper', 'leaf_blight', 'leaf_spot']
         
         # Streamlit app
-        st.title("Image Classification App")
+        st.title("Image Classification")
         
         # File uploader
         uploaded_file = st.file_uploader("Choose an image...", type="jpg")
