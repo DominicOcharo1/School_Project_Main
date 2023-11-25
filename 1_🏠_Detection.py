@@ -135,7 +135,7 @@ with st.container():
         
             Genrate_pred = st.button("Generate Prediction")    
             if Genrate_pred:
-                prediction = model.predict(uploaded_image).argmax()
+                prediction = model.predict(uploaded_file).argmax()
                 st.title("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
                 st.markdown("<h4 style='text-align: center; color: gray;'>REMEDIES</h4>", unsafe_allow_html=True)
                 
