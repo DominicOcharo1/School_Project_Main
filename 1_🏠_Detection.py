@@ -103,7 +103,7 @@ with st.container():
         # Add other source types (video, webcam, youtube) and their corresponding functions here
 
         elif source_radio == settings.VIDEO:
-            helper.play_stored_video(confidence, model)
+            # helper.play_stored_video(confidence, model)
             # helper.play_uploaded_video1(confidence, model)
             st.write("---")
             source_vid = st.selectbox(
