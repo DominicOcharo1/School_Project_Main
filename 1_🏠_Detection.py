@@ -134,7 +134,7 @@ with st.container():
             with col2:
                 if Genrate_pred:
                     prediction = model.predict(img_reshape).argmax()
-                    st.title("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
+                    st.subheader("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
                     st.markdown("<h4 style='text-align: center; color: gray;'>REMEDIES</h4>", unsafe_allow_html=True)
                     
                     if format(map_dict [prediction]) == "armyworm":
