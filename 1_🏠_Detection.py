@@ -100,12 +100,11 @@ with st.container():
         # Add other source types (video, webcam, youtube) and their corresponding functions here
 
     elif model_task == 'Classification':
-        st.write("---")
         st.markdown("<h2 style='text-align: center; color: black;'>Classification Website</h2>", unsafe_allow_html=True)
         
         model = tf.keras.models.load_model("classification_model/mdl_wt .hdf5")
         ### load file
-        uploaded_file = st.file_uploader("Choose a image file", type="jpg")
+        uploaded_file = st.file_uploader("Choose a image file", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
         
         map_dict = {0: 'armyworm',
                     1: 'blight',
