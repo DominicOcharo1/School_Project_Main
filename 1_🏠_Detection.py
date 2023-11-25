@@ -116,7 +116,7 @@ with st.container():
             # Convert the file to an opencv image.
             file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
             # opencv_image = cv2.imdecode(file_bytes, 1)
-            opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
+            # opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
             resized = cv2.resize(opencv_image,(224,224))
             # Now do something with the image! For example, let's display it:
             st.image(opencv_image, channels="RGB")
