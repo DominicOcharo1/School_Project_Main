@@ -13,6 +13,7 @@ from tensorflow.keras.layers import Dense, Conv2D, GlobalAvgPool2D, Input
 from tensorflow.keras import callbacks, optimizers
 from tensorflow.keras.preprocessing.image import load_img, ImageDataGenerator
 import numpy as np
+import cv2
 
 # Local Modules
 import settings
@@ -112,30 +113,21 @@ with st.container():
                     3: 'leaf_spot'}
         
         
-        if uploaded_file is not None:
-            try:
-                if uploaded_file:
-                    uploaded_image = PIL.Image.open(uploaded_file)
-                    st.image(uploaded_file, caption="Uploaded Image",
-                                use_column_width=True)
-            except Exception as ex:
-                st.error("Error occurred while opening the image.")
-                st.error(ex)
-                
-            # Convert the file to an opencv image.
-            # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-            # opencv_image = cv2.imdecode(file_bytes, 1)
-            # opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
-            # resized = cv2.resize(opencv_image,(224,224))
-            # Now do something with the image! For example, let's display it:
-            # st.image(opencv_image, channels="RGB")
+        if uploaded_file is not None:   
+            Convert the file to an opencv image.
+            file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+            opencv_image = cv2.imdecode(file_bytes, 1)
+            opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
+            resized = cv2.resize(opencv_image,(224,224))
+            Now do something with the image! For example, let's display it:
+            st.image(opencv_image, channels="RGB")
         
-            # resized = mobilenet_v2_preprocess_input(resized)
-            # img_reshape = resized[np.newaxis,...]
+            resized = mobilenet_v2_preprocess_input(resized)
+            img_reshape = resized[np.newaxis,...]
         
             Genrate_pred = st.button("Generate Prediction")    
             if Genrate_pred:
-                prediction = model.predict(uploaded_file).argmax()
+                prediction = model.predict(img_reshape).argmax()
                 st.title("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
                 st.markdown("<h4 style='text-align: center; color: gray;'>REMEDIES</h4>", unsafe_allow_html=True)
                 
