@@ -66,10 +66,11 @@ with st.container():
             # "Select Source", settings.SOURCES_LIST)
 
         # source_img = None
+        model_path1 = Path(settings.DETECTION_MODEL)
         try:
-            model = helper.load_model(model_path)
+            model = helper.load_model(model_path1)
         except Exception as ex:
-            st.error(f"Unable to load model. Check the specified path: {model_path}")
+            st.error(f"Unable to load model. Check the specified path: {model_path1}")
             st.error(ex)
         
         st.header("Image/Video Config")
