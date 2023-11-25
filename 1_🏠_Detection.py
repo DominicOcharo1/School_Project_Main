@@ -61,11 +61,23 @@ with st.container():
     st.write("---")
 
     if model_task == 'Detection':
+        # st.header("Image/Video Config")
+        # source_radio = st.radio(
+            # "Select Source", settings.SOURCES_LIST)
+
+        # source_img = None
+        try:
+            model = helper.load_model(model_path)
+        except Exception as ex:
+            st.error(f"Unable to load model. Check the specified path: {model_path}")
+            st.error(ex)
+        
         st.header("Image/Video Config")
         source_radio = st.radio(
             "Select Source", settings.SOURCES_LIST)
-
+        
         source_img = None
+
         
         if source_radio == settings.VIDEO:
             helper.play_stored_video(confidence, model)
