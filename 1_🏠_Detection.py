@@ -116,6 +116,7 @@ with st.container():
         
         
         if uploaded_file is not None:
+            col1, col2 = st.columns(2)
             with col2:
                 # Convert the file to an opencv image.
                 file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
