@@ -116,7 +116,7 @@ with st.container():
             try:
                 if uploaded_file:
                     uploaded_image = PIL.Image.open(uploaded_file)
-                    st.image(source_img, caption="Uploaded Image",
+                    st.image(uploaded_file, caption="Uploaded Image",
                                 use_column_width=True)
             except Exception as ex:
                 st.error("Error occurred while opening the image.")
