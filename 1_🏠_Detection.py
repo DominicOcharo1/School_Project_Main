@@ -113,8 +113,17 @@ with st.container():
         
         
         if uploaded_file is not None:
+            try:
+                if uploaded_file:
+                    uploaded_image = PIL.Image.open(uploaded_file)
+                    st.image(source_img, caption="Uploaded Image",
+                                use_column_width=True)
+            except Exception as ex:
+                st.error("Error occurred while opening the image.")
+                st.error(ex)
+                
             # Convert the file to an opencv image.
-            file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+            # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
             # opencv_image = cv2.imdecode(file_bytes, 1)
             # opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
             # resized = cv2.resize(opencv_image,(224,224))
@@ -126,7 +135,7 @@ with st.container():
         
             Genrate_pred = st.button("Generate Prediction")    
             if Genrate_pred:
-                prediction = model.predict(img_reshape).argmax()
+                prediction = model.predict(uploaded_image).argmax()
                 st.title("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
                 st.markdown("<h4 style='text-align: center; color: gray;'>REMEDIES</h4>", unsafe_allow_html=True)
                 
