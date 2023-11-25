@@ -9,3 +9,4 @@ numpy
 matplotlib
 tensorflow==2.5.0rc1
 opencv-python==4.5.1.48
+os
