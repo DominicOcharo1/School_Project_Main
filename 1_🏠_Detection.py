@@ -66,8 +66,18 @@ with st.container():
             "Select Source", settings.SOURCES_LIST)
 
         source_img = None
-
-        if source_radio == settings.IMAGE:
+        
+        if source_radio == settings.VIDEO:
+            helper.play_stored_video(confidence, model)
+            # helper.play_uploaded_video1(confidence, model)
+   
+        elif source_radio == settings.WEBCAM:
+            helper.play_webcam(confidence, model)
+    
+        elif source_radio == settings.YOUTUBE:
+            helper.play_youtube_video(confidence, model)
+            
+        elif source_radio == settings.IMAGE:
             st.write("---")
             st.markdown('Updload a photo of an affected maize leaf, then click the Detect Objects button and check the result.')
 
@@ -103,49 +113,6 @@ with st.container():
                                     st.write(box.data)
                         except Exception as ex:
                             st.write("No image is uploaded yet!")
-
-        # Add other source types (video, webcam, youtube) and their corresponding functions here
-
-        elif source_radio == settings.VIDEO:
-            # helper.play_stored_video(confidence, model)
-            # helper.play_uploaded_video1(confidence, model)
-            st.write("---")
-            source_vid = st.selectbox(
-                "Choose a video...", settings.VIDEOS_DICT.keys())
-        
-            is_display_tracker, tracker = display_tracker_options()
-        
-            with open(settings.VIDEOS_DICT.get(source_vid), 'rb') as video_file:
-                video_bytes = video_file.read()
-            if video_bytes:
-                st.video(video_bytes)
-        
-            if st.button('Detect Video Objects'):
-                try:
-                    vid_cap = cv2.VideoCapture(
-                        str(settings.VIDEOS_DICT.get(source_vid)))
-                    st_frame = st.empty()
-                    while (vid_cap.isOpened()):
-                        success, image = vid_cap.read()
-                        if success:
-                            _display_detected_frames(conf,
-                                                     model,
-                                                     st_frame,
-                                                     image,
-                                                     is_display_tracker,
-                                                     tracker
-                                                     )
-                        else:
-                            vid_cap.release()
-                            break
-                except Exception as e:
-                    st.error("Error loading video: " + str(e))
-   
-        elif source_radio == settings.WEBCAM:
-            helper.play_webcam(confidence, model)
-    
-        elif source_radio == settings.YOUTUBE:
-            helper.play_youtube_video(confidence, model)
         
 
     elif model_task == 'Classification':
