@@ -101,15 +101,16 @@ with st.container():
                             st.write("No image is uploaded yet!")
 
         # Add other source types (video, webcam, youtube) and their corresponding functions here
-    elif source_radio == settings.VIDEO:
-        helper.play_stored_video(confidence, model)
-        # helper.play_uploaded_video1(confidence, model)
+
+        elif source_radio == settings.VIDEO:
+            helper.play_stored_video(confidence, model)
+            # helper.play_uploaded_video1(confidence, model)
+   
+        elif source_radio == settings.WEBCAM:
+            helper.play_webcam(confidence, model)
     
-    elif source_radio == settings.WEBCAM:
-        helper.play_webcam(confidence, model)
-        
-    elif source_radio == settings.YOUTUBE:
-        helper.play_youtube_video(confidence, model)
+        elif source_radio == settings.YOUTUBE:
+            helper.play_youtube_video(confidence, model)
         
 
     elif model_task == 'Classification':
