@@ -101,6 +101,18 @@ with st.container():
                             st.write("No image is uploaded yet!")
 
         # Add other source types (video, webcam, youtube) and their corresponding functions here
+        elif source_radio == settings.VIDEO:
+        helper.play_stored_video(confidence, model)
+        # helper.play_uploaded_video1(confidence, model)
+    
+        elif source_radio == settings.WEBCAM:
+            helper.play_webcam(confidence, model)
+        
+        elif source_radio == settings.YOUTUBE:
+            helper.play_youtube_video(confidence, model)
+        
+        else:
+            st.error("Please select a valid source type!")
 
     elif model_task == 'Classification':
         st.markdown("<h2 style='text-align: center; color: black;'>Classification Website</h2>", unsafe_allow_html=True)
