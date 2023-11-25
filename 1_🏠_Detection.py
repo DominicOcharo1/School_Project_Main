@@ -14,6 +14,8 @@ from tensorflow.keras import callbacks, optimizers
 from tensorflow.keras.preprocessing.image import load_img, ImageDataGenerator
 import numpy as np
 import cv2
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input as mobilenet_v2_preprocess_input
+
 
 # Local Modules
 import settings
