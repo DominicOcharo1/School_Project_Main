@@ -100,7 +100,10 @@ with st.container():
         # Add other source types (video, webcam, youtube) and their corresponding functions here
 
     elif model_task == 'Classification':
-        model = tf.keras.models.load_model(r"C:\Users\user\Desktop\classification_model\mdl_wt .hdf5")
+        st.write("---")
+        st.markdown("<h2 style='text-align: center; color: black;'>Classification Website</h2>", unsafe_allow_html=True)
+        
+        model = tf.keras.models.load_model("classification_model/mdl_wt .hdf5")
         ### load file
         uploaded_file = st.file_uploader("Choose a image file", type="jpg")
         
@@ -125,7 +128,8 @@ with st.container():
             Genrate_pred = st.button("Generate Prediction")    
             if Genrate_pred:
                 prediction = model.predict(img_reshape).argmax()
-                st.title("Predicted Label for the image is {}".format(map_dict [prediction]))
+                st.title("Predicted Pests/Diseases: {}".format(map_dict [prediction]))
+                st.markdown("<h4 style='text-align: center; color: gray;'>REMEDIES</h4>", unsafe_allow_html=True)
                 
                 if format(map_dict [prediction]) == "armyworm":
                                 st.write(
@@ -163,5 +167,4 @@ with st.container():
                                     - Avoid overhead irrigation, which can create a favorable environment for leaf spot pathogens to thrive.
                                     
                                     """)
-            else:
-                st.write("Please upload an image before pressing the Predict button.")
+                    
