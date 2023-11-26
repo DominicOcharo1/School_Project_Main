@@ -5,3 +5,8 @@ streamlit-webrtc==0.35.1
 torch==2.0.1
 ultralytics==8.0.150
 pafy==0.5.5
+numpy
+matplotlib
+tensorflow==2.5.0rc1
+opencv-python==4.5.1.48
+os
