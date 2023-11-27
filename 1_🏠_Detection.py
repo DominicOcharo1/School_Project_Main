@@ -127,7 +127,7 @@ with st.container():
     elif model_task == 'Classification':
         st.markdown("<h2 style='text-align: center; color: black;'>Classification Website</h2>", unsafe_allow_html=True)
         
-        model = tf.keras.models.load_model("classification_model/mdl_wt .hdf5")
+        model = tf.keras.models.load_model("classification_model/best.hdf5")
         ### load file
         uploaded_file = st.file_uploader("Choose a image file", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
         
